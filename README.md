@@ -14,14 +14,14 @@ Create a Brand Map from brand-level centroids or topic mixes.
 Extract delighters and disappointers using sentiment-partitioned term scoring.
 The analysis is exploratory — useful for hypothesis generation — but not a replacement for representative brand health measurement.
 
-📂 Dataset
+# 📂 Dataset
 
 Source: Amazon Product Reviews Dataset – Kaggle
 
-Fields: review_id, product_id, brand, review_title, review_body, rating, review_date, verified_purchase, etc.
-Subset: Choose a single product category (e.g., “Headphones”, “Skin Care”) and focus on leading brands by review volume.
+Fields: id, brand , categories , colors , dateAdded  , dateUpdated , dimension , keys , reviews.rating , reviews.text , reviews.title , reviews.userCity etc
+Subset: Choose a single product category (e.g., “Headphones”, “Tablet”) and focus on leading brands by review volume.
 
-🧹 Data Preprocessing
+# 🧹 Data Preprocessing
 
 Steps performed:
 
@@ -33,7 +33,7 @@ Convert text to lowercase
 
 Remove special characters, punctuation, and numbers
 
-Remove stopwords (NLTK/spaCy)
+Remove stopwords (NLTK/spaCy) and custom stop words (amazon, product, device..etc)
 
 Lemmatization for better interpretability
 
@@ -61,7 +61,7 @@ Example insights:
 
 Brand A’s positive word cloud emphasizes “sound quality” and “battery life,” while negatives focus on “connection” and “support.”
 
-🧾 Topic Modeling (LDA)
+# 🧾 Topic Modeling (LDA)
 
 Goal: Discover latent discussion themes within reviews.
 
@@ -79,7 +79,7 @@ lda_topics.csv — list of top words per topic
 
 topic_distribution_per_brand.csv
 
-🔍 Document Clustering (K-Means)
+# 🔍 Document Clustering (K-Means)
 
 Objective: Group reviews into semantic clusters using term patterns.
 
@@ -93,7 +93,7 @@ Output files:
 
 cluster_summary.csv — key terms and representative reviews per cluster
 
-🗺️ Brand Map Generation
+# 🗺️ Brand Map Generation
 
 Approach 1 – TF-IDF Centroid Method:
 
@@ -112,7 +112,7 @@ Project via PCA to visualize topic-based brand proximity.
 Output:
 brand_map.png — a 2D brand positioning map with labels, colors by average sentiment, and sizes by review count.
 
-🌟 Delighters & ⚠️ Disappointers
+# 🌟 Delighters & ⚠️ Disappointers
 
 Partition reviews into Positive (≥4★) and Negative (≤2★).
 
@@ -129,7 +129,7 @@ High-scoring negative terms → Disappointers
 Output:
 brand_delighters_disappointers.csv
 
-📊 Evaluation Metrics
+# 📊 Evaluation Metrics
 
 Topic coherence (LDA)
 
